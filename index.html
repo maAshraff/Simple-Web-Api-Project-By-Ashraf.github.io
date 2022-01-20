@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Simple Api Project</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      font-family: 'Times New Roman', Times, serif;
+    }
+
+    body {
+      background-color: gray;
+    }
+
+    .weather-wrapper {
+      background: radial-gradient(white, #135757);
+      margin: 5% 0 5% 5%;
+      padding: 40px 5%;
+      float: left;
+      color: white;
+      width: 70%;
+      max-width: 400px;
+      color: black;
+      font-weight: bolder;
+    }
+
+    strong {
+      color: steelblue;
+    }
+
+    .capitalize {
+      text-transform: capitalize;
+    }
+
+    .hide {
+      display: none;
+    }
+
+    
+  </style>
+</head>
+
+<body>
+  <div class="container" style="text-align: center;background-color: aliceblue;margin-top: 5rem;padding: 6rem;">
+    <h1 style="color: darkblue;font-size: 3rem;margin-bottom: 5rem;">It is a Simple Website Api Project which <br> Shows
+      the Current Weather </h1>
+    <input type="text" id="nameid" placeholder="Search your Location"
+        style="width: 35rem;padding: 0.8rem;">
+    <Button style="padding: 1rem;background-color: aliceblue;">Click Me</Button>
+    <div class="main">
+      <div class="weather-wrapper hide" style="position: relative; left: 14rem; top: 2.9rem; display: block;box-shadow: 10px 5px 68px black;">
+        <p><strong>Place</strong>
+          <br /><span class="weather-place"></span>
+        </p>
+
+        <p><strong>Temperature</strong>
+          <br /><span class="weather-temperature"></span> (<span class="weather-min-temperature"></span> - <span
+            class="weather-max-temperature"></span>)
+        </p>
+
+        <p><strong>Description</strong>
+          <br /><span class="weather-description capitalize"></span>
+        </p>
+
+        <p><strong>Humidity</strong>
+          <br /><span class="weather-humidity"></span>
+        </p>
+
+        <p><strong>Wind speed</strong>
+          <br /><span class="weather-wind-speed"></span>
+        </p>
+
+        <p><strong>Sunrise</strong>
+          <br /><span class="weather-sunrise"></span>
+        </p>
+
+        <p><strong>Sunset</strong>
+          <br /><span class="weather-sunset"></span>
+        </p>
+        <p>&copy;All Rights Reserved by Md Abdul AShraf Ali</p>
+
+      </div>
+    </div>
+  </div>
+  <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+  <script src="/src/openweather.js"></script>
+    
+  <script>
+    $(document).ready(function(){
+        $('Button').click(function(){
+          const name = $('#nameid').val();
+      
+          $(function () {
+            
+            $('.weather-temperature').openWeather({
+        key: 'c9d49310f8023ee2617a7634de23c2aa',
+        city: `${name}`,
+        descriptionTarget: '.weather-description',
+        windSpeedTarget: '.weather-wind-speed',
+        minTemperatureTarget: '.weather-min-temperature',
+        maxTemperatureTarget: '.weather-max-temperature',
+        humidityTarget: '.weather-humidity',
+        sunriseTarget: '.weather-sunrise',
+        sunsetTarget: '.weather-sunset',
+        placeTarget: '.weather-place',
+      });
+      
+    });
+    
+  });
+});  
+    </script>
+    </body>
+
+</html>
