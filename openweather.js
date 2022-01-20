@@ -40,7 +40,7 @@
 			return time;
 		}
 
-		let apiURL = '//api.openweathermap.org/data/2.5/weather?lang=';
+		let apiURL = 'https://api.openweathermap.org/data/2.5/weather?lang=';
 		if(s.city != null) {
 			apiURL += '&q='+s.city;
 
